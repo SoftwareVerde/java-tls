@@ -1,6 +1,6 @@
 package com.softwareverde.security;
 
-import com.softwareverde.security.encoding.Base58;
+import com.softwareverde.util.Base58Util;
 
 import java.security.SecureRandom;
 
@@ -19,6 +19,6 @@ public class AuthorizationKeyFactory {
     public String generateAuthorizationKey() {
         final byte[] authTokenBytes = new byte[_authTokenLength];
         _secureRandom.nextBytes(authTokenBytes);
-        return Base58.encode(authTokenBytes);
+        return Base58Util.toBase58String(authTokenBytes);
     }
 }
